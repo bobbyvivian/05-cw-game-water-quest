@@ -1,23 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Water Quest</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pipeline Puzzle – charity: water</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Water Quest</h1>
-    <p class="game-instructions">Collect 20 items to complete the game!</p>
-    <div class="stats">
-      <p>Cans Collected: <span id="current-cans">0</span></p>
-      <p>Time Left: <span id="timer">30</span>s</p>
+  <div class="main-content">
+
+    <!-- Cute graphics on the left and right sides -->
+    <div class="side-graphic left-graphic">
+      💧<br>💙<br>💧<br>💛<br>💧
     </div>
-    <div id="achievements" class="achievement"></div>
-    <div class="game-grid"></div>
-    <button id="start-game">Start Game</button>
+    <div class="side-graphic right-graphic">
+      💧<br>💚<br>💧<br>❤️<br>💧
+    </div>
+  <div id="startScreen">
+    <h1 id="title">💧 charity: water 💧</h1>
+    <p style="max-width: 340px; margin: 0 auto 1.2rem; font-size:1.1rem;">
+      Help build a pipeline to deliver clean water to communities in need.<br>
+      Every connection brings hope and health! <span style="font-size:1.3em;">❤️</span>
+    </p>
+    <div style="margin: 1.2rem 0;">
+      <button id="easy-button" onclick="startGame('easy')">Easy</button>
+      <button id="medium-button" onclick="startGame('medium')">Medium</button>
+      <button id="hard-button" onclick="startGame('hard')">Hard</button>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <div id="gameContainer" style="display:none;">
+    <div class="scoreboard">
+      <h2>Score: <span id="score">0</span> | Time: <span id="timer">60</span>s</h2>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="inventory" id="inventory"></div>
+    <div class="footer">
+      <button onclick="restartGame()">Restart</button>
+      <button onclick="location.reload()">Back to Main Menu</button>
+    </div>
+  </div>
+
+  <div id="gameOverScreen" style="display:none;">
+    <h1>Game Over</h1>
+    <p id="finalScore"></p>
+    <p>Thanks for helping bring water to communities in need.</p>
+    <button onclick="restartGame()">Play Again</button>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>
+    <img src="/img/cw_logo.png" alt="charity: water logo" style="height: 32px; vertical-align: middle; margin-right: 8px;">
+    Learn more at 💧
+    <a href="https://www.charitywater.org/" target="_blank" rel="noopener">charity: water</a> 💧
+    &nbsp;|&nbsp; 
+    ❤️<a href="https://www.charitywater.org/donate" target="_blank" rel="noopener"><strong>Donate</strong></a>❤️
+  </p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
